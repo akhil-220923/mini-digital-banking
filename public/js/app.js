@@ -109,7 +109,7 @@ async function loadUserData() {
         try {
             const session = JSON.parse(localStorage.getItem('nexusSession'));
             if (session && session.token) {
-                const response = await fetch('http://localhost:5000/api/users/profile', {
+                const response = await fetch('https://mini-banking-backend.onrender.com/api/users/profile', {
                     headers: { 'Authorization': `Bearer ${session.token}` }
                 });
                 if (response.ok) {
@@ -454,7 +454,7 @@ function setupAddMoneyLogic() {
             const session = JSON.parse(localStorage.getItem('nexusSession'));
             if (!session || !session.token) throw new Error("Unauthorized");
 
-            const response = await fetch('http://localhost:5000/api/users/deposit', {
+            const response = await fetch('https://mini-banking-backend.onrender.com/api/users/deposit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -770,7 +770,7 @@ async function populateLoans() {
         const session = JSON.parse(localStorage.getItem('nexusSession'));
         if (!session || !session.token) return;
 
-        const response = await fetch('http://localhost:5000/api/loans/my-loans', {
+        const response = await fetch('https://mini-banking-backend.onrender.com/api/loans/my-loans', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${session.token}`
@@ -887,7 +887,7 @@ function setupLoanLogic() {
                 formData.append('durationMonths', durationMonths);
                 formData.append('document', document.getElementById('loanDocument').files[0]);
 
-                const response = await fetch('http://localhost:5000/api/loans/apply', {
+                const response = await fetch('https://mini-banking-backend.onrender.com/api/loans/apply', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${session.token}`

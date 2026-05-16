@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="dashboard-card" style="text-align: center; padding: 32px 24px;">
                     <div class="card-title" style="justify-content: center; color: var(--text-light);">System Liquidity</div>
-                    <div class="card-value" id="adminTotalBalance" style="color: var(--success);">â‚¹0.00</div>
+                    <div class="card-value" id="adminTotalBalance" style="color: var(--success);">₹0.00</div>
                 </div>
                 <div class="dashboard-card" style="text-align: center; background: linear-gradient(135deg, var(--danger) 0%, #ff6b6b 100%); color: white; border: none; padding: 32px 24px;">
                     <div class="card-title" style="justify-content: center; color: rgba(255,255,255,0.9);">Total Transactions</div>
@@ -186,7 +186,7 @@
                         <td style="font-family:monospace; font-size:0.85rem;">${u.id}</td>
                         <td style="font-weight:600;">${u.name} ${isPendingDelete ? '<span title="Pending Deletion" style="color:var(--warning);"><i class="fas fa-clock"></i></span>' : ''}</td>
                         <td>${u.email}</td>
-                        <td style="font-weight:600;">â‚¹${u.balance.toFixed(2)}</td>
+                        <td style="font-weight:600;">₹${u.balance.toFixed(2)}</td>
                         <td>
                             <span class="badge-status ${isBlocked ? 'badge-danger' : 'badge-success'}">${isBlocked ? 'BLOCKED' : 'ACTIVE'}</span>
                         </td>
@@ -204,7 +204,7 @@
 
         async function fetchAndRenderLoans() {
             try {
-                const res = await fetch('http://localhost:5000/api/loans/all');
+                const res = await fetch('https://mini-banking-backend.onrender.com/api/loans/all');
                 const data = await res.json();
                 const tbody = document.getElementById('adminLoansTable');
                 tbody.innerHTML = '';
@@ -239,7 +239,7 @@
                             <td style="font-size:0.85rem;">${formattedDate}</td>
                             <td style="font-weight:600;">${userName}</td>
                             <td>${loan.loanType}</td>
-                            <td style="font-weight:600;">â‚¹${loan.amount.toFixed(2)}</td>
+                            <td style="font-weight:600;">₹${loan.amount.toFixed(2)}</td>
                             <td>
                                 <span class="badge-status ${badgeClass}">${loan.status}</span>
                             </td>
@@ -261,7 +261,7 @@
             if (!confirm(`Are you sure you want to mark this loan as ${status}?`)) return;
 
             try {
-                const res = await fetch(`http://localhost:5000/api/loans/${loanId}/status`, {
+                const res = await fetch(`https://mini-banking-backend.onrender.com/api/loans/${loanId}/status`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ status })

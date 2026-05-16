@@ -3,9 +3,11 @@
  * Handles Registration, Login, OTP simulation and Session Management
  */
 
-const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-  ? "http://localhost:5000/api"
-  : https://mini-banking-backend.onrender.com/api"; // ⚠️ Replace with your Render URL after deployment
+const API_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "https://mini-banking-backend.onrender.com/api"
+    : "https://mini-banking-backend.onrender.com/api"; // ⚠️ Replace with your Render URL after deployment
 const SESSION_KEY = "nexusSession";
 
 /* ===============================

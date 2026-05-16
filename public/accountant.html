@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -167,7 +167,7 @@
             const tbody = document.getElementById('registrationRequestsTable');
             tbody.innerHTML = '<tr><td colspan="8" style="color:var(--text-light);">Loading...</td></tr>';
             try {
-                const res = await fetch('http://localhost:5000/api/accountant/pending-registrations');
+                const res = await fetch('https://mini-banking-backend.onrender.com/api/accountant/pending-registrations');
                 const data = await res.json();
 
                 tbody.innerHTML = '';
@@ -188,7 +188,7 @@
                             <td>${r.email}</td>
                             <td>${r.phone}</td>
                             <td>${r.gender}</td>
-                            <td style="font-weight:600;">â‚¹${(r.balance || 0).toFixed(2)}</td>
+                            <td style="font-weight:600;">₹${(r.balance || 0).toFixed(2)}</td>
                             <td>${statusBadge}</td>
                             <td style="font-size:0.82rem;color:var(--text-light);">${date}</td>
                             <td>
@@ -214,7 +214,7 @@
             if (!confirm(`Are you sure you want to ${label} this registration request?`)) return;
 
             try {
-                const res = await fetch(`http://localhost:5000/api/accountant/${action}/${id}`, { method: 'POST' });
+                const res = await fetch(`https://mini-banking-backend.onrender.com/api/accountant/${action}/${id}`, { method: 'POST' });
                 const data = await res.json();
                 if (res.ok) {
                     alert(`Registration request ${action === 'approve' ? 'approved! Account is now active.' : 'rejected.'}`);
@@ -247,7 +247,7 @@
                         <td style="font-family:monospace; font-size:0.85rem;">${u.id}</td>
                         <td style="font-weight:600;">${u.name}</td>
                         <td>${u.email}</td>
-                        <td style="font-weight:600;">â‚¹${(u.balance || 0).toFixed(2)}</td>
+                        <td style="font-weight:600;">₹${(u.balance || 0).toFixed(2)}</td>
                         <td>
                             <button onclick="processDeletion('${u.id}', 'approve')" class="btn" style="background:var(--danger); color:white; padding:4px 8px; font-size:0.8rem; border:none; margin-right:8px;">Confirm Delete</button>
                             <button onclick="processDeletion('${u.id}', 'reject')" class="btn btn-outline" style="padding:4px 8px; font-size:0.8rem;">Cancel</button>
@@ -273,7 +273,7 @@
                     
                     // Attempt to delete from backend as well
                     try {
-                        await fetch(`http://localhost:5000/api/admin/reject-user/${id}`, { method: 'DELETE' });
+                        await fetch(`https://mini-banking-backend.onrender.com/api/admin/reject-user/${id}`, { method: 'DELETE' });
                     } catch(e) { console.error("Backend delete failed", e); }
 
                 } else if (action === 'reject') {
@@ -336,7 +336,7 @@
                     // Update DB force-update
                     const backendPayload = Object.assign({}, newProfile, { oldEmail: originalEmail });
                     try {
-                        const res = await fetch(`http://localhost:5000/api/admin/force-update-user/${id}`, {
+                        const res = await fetch(`https://mini-banking-backend.onrender.com/api/admin/force-update-user/${id}`, {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(backendPayload)

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,10 +17,10 @@
 <body>
     <!-- Auth Check handled entirely by auth.js -->
 
-<!-- âœ… STEP 2: Load auth check -->
+<!-- ✅ STEP 2: Load auth check -->
 <script src="js/auth.js"></script>
 
-<!-- âœ… STEP 3: Verify login -->
+<!-- ✅ STEP 3: Verify login -->
 <script>
 const currentUserId = requireAuth();
 </script>
@@ -166,7 +166,7 @@ const currentUserId = requireAuth();
                 <!-- 1. Dashboard View -->
                 <section id="view-dashboard" class="view-section active">
                     <div class="page-header">
-                        <h1>Welcome back, <span id="dashWaveName"></span>! ðŸ‘‹</h1>
+                        <h1>Welcome back, <span id="dashWaveName"></span>! 👋</h1>
                         <p>Here's what's happening with your accounts today.</p>
                     </div>
 
@@ -184,7 +184,7 @@ const currentUserId = requireAuth();
                             <div class="dashboard-card balance-card" style="margin-bottom: 0;">
                                 <div class="card-title">Available Balance</div>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <div class="card-value" id="dashBalance">â‚¹0.00</div>
+                                    <div class="card-value" id="dashBalance">₹0.00</div>
                                     <button type="button" id="toggleBalanceBtn" style="border: none; background: transparent; color: inherit; font-size: 1.2rem; cursor: pointer; padding: 0;">
                                         <i class="fas fa-eye-slash" id="toggleBalanceIcon"></i>
                                     </button>
@@ -213,7 +213,7 @@ const currentUserId = requireAuth();
                                     <form id="addMoneyForm">
                                         <div class="form-group" style="margin-bottom: 12px;">
                                             <div style="position: relative;">
-                                                <span style="position: absolute; left: 12px; top: 12px; color: var(--text-light); font-weight: bold;">â‚¹</span>
+                                                <span style="position: absolute; left: 12px; top: 12px; color: var(--text-light); font-weight: bold;">₹</span>
                                                 <input type="number" id="addMoneyAmount" class="form-control" placeholder="0.00" min="1" step="0.01" required style="padding-left: 30px;">
                                             </div>
                                         </div>
@@ -370,7 +370,7 @@ const currentUserId = requireAuth();
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" style="text-align:left;">Amount (â‚¹)</label>
+                                <label class="form-label" style="text-align:left;">Amount (₹)</label>
                                 <input type="number" id="transAmount" class="form-control" placeholder="0.00" min="1"
                                     required>
                             </div>
@@ -386,7 +386,7 @@ const currentUserId = requireAuth();
                             <div
                                 style="margin-bottom:20px; text-align:right; font-size:0.9rem; color:var(--text-light);">
                                 Available Balance: <strong style="color:var(--primary);"
-                                    id="transAvailableBal">â‚¹0.00</strong>
+                                    id="transAvailableBal">₹0.00</strong>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block" id="sendMoneyBtn" disabled>Send
@@ -417,7 +417,7 @@ const currentUserId = requireAuth();
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" style="text-align:left;">Amount (â‚¹)</label>
+                                    <label class="form-label" style="text-align:left;">Amount (₹)</label>
                                     <input type="number" id="qrAmount" class="form-control" required min="1">
                                 </div>
                                 <div id="qrMessage" style="margin-bottom:16px; font-weight:500;"></div>
@@ -536,7 +536,7 @@ const currentUserId = requireAuth();
                             <h3>Apply for a Loan</h3>
                             <form id="loanForm">
                                 <div class="form-group">
-                                    <label class="form-label" style="text-align:left;">Loan Amount (â‚¹)</label>
+                                    <label class="form-label" style="text-align:left;">Loan Amount (₹)</label>
                                     <input type="number" id="loanAmount" class="form-control" placeholder="0.00" min="1" required>
                                 </div>
                                 <div class="form-group">
@@ -553,7 +553,7 @@ const currentUserId = requireAuth();
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" style="text-align:left;">Monthly Income (â‚¹)</label>
+                                    <label class="form-label" style="text-align:left;">Monthly Income (₹)</label>
                                     <input type="number" id="loanIncome" class="form-control" placeholder="0.00" min="0" required>
                                 </div>
                                 <div class="form-group">
@@ -590,7 +590,7 @@ const currentUserId = requireAuth();
                             <div class="dashboard-card form-panel" style="margin:0;">
                                 <h3>EMI Calculator</h3>
                                 <div class="form-group">
-                                    <label class="form-label" style="text-align:left;">Loan Amount (â‚¹)</label>
+                                    <label class="form-label" style="text-align:left;">Loan Amount (₹)</label>
                                     <input type="number" id="emiAmount" class="form-control" placeholder="0.00" min="1" required>
                                 </div>
                                 <div class="form-group">
@@ -603,7 +603,7 @@ const currentUserId = requireAuth();
                                 </div>
                                 <button type="button" id="calcEmiBtn" class="btn btn-outline btn-block">Calculate EMI</button>
                                 <div id="emiResult" style="margin-top:16px; font-weight:600; font-size:1.1rem; color:var(--primary); text-align:center; display:none;">
-                                    EMI: â‚¹<span id="emiValue">0.00</span> / month
+                                    EMI: ₹<span id="emiValue">0.00</span> / month
                                 </div>
                             </div>
                             

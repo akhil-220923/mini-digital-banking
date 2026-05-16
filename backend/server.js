@@ -15,15 +15,19 @@ const app = express();
 // Connect DB
 connectDB();
 
-// Middleware
+// Middlewareapp.use(cors({
 app.use(cors({
-    origin: [
-        "http://localhost:5500",
-        "http://127.0.0.1:5500",
-        "https://guileless-sunburst-b156f0.netlify.app"
-    ],
-    credentials: true
+  origin: [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "https://loquacious-semolina-26dc07.netlify.app",
+    "https://guileless-sunburst-b156f0.netlify.app"
+  ],
+  credentials: true
 }));
+
+    credentials: true
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
