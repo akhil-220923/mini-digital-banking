@@ -20,7 +20,7 @@ app.use(cors({
     origin: [
         "http://localhost:5500",
         "http://127.0.0.1:5500",
-        "https://superb-chebakia-3e4dce.netlify.app"
+        "https://guileless-sunburst-b156f0.netlify.app"
     ],
     credentials: true
 }));
