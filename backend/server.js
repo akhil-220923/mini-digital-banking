@@ -15,7 +15,7 @@ const app = express();
 // Connect DB
 connectDB();
 
-// Middlewareapp.use(cors({
+// Middleware
 app.use(cors({
   origin: [
     "http://localhost:5500",
@@ -26,7 +26,6 @@ app.use(cors({
   credentials: true
 }));
 
-    credentials: true
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
