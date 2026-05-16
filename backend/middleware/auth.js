@@ -9,7 +9,7 @@ exports.verifyUser = (req, res, next) => {
 
     const token = authHeader.replace("Bearer ", "");
     // use a fallback secret for development
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const decoded = jwt.verify(token, process.env.JWT_SECRET || "default_banking_secret");
     req.user = decoded; // attaching decoded token payload (e.g. { id: user._id })
     next();
   } catch (error) {

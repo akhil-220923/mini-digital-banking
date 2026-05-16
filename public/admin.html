@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
         <div class="auth-card">
             <div class="auth-header">
                 <a href="index.html" class="logo" style="display: flex; align-items: center; justify-content: center; text-decoration: none; gap: 8px; margin-bottom: 20px;">
-                    <img src="assets/ajhggc_logo.png" alt="Aurex Logo" class="custom-logo-img" style="height: 48px;">
+                    <img src="assets/aurex_bank_logo.png" alt="Aurex Logo" class="custom-logo-img" style="height: 48px;">
                     <span class="brand-text" style="font-size: 1.8rem;">Aurex</span>
                 </a>
                 <h2>Bank Manager Login</h2>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="dashboard-card" style="text-align: center; padding: 32px 24px;">
                     <div class="card-title" style="justify-content: center; color: var(--text-light);">System Liquidity</div>
-                    <div class="card-value" id="adminTotalBalance" style="color: var(--success);">₹0.00</div>
+                    <div class="card-value" id="adminTotalBalance" style="color: var(--success);">â‚¹0.00</div>
                 </div>
                 <div class="dashboard-card" style="text-align: center; background: linear-gradient(135deg, var(--danger) 0%, #ff6b6b 100%); color: white; border: none; padding: 32px 24px;">
                     <div class="card-title" style="justify-content: center; color: rgba(255,255,255,0.9);">Total Transactions</div>
@@ -186,7 +186,7 @@
                         <td style="font-family:monospace; font-size:0.85rem;">${u.id}</td>
                         <td style="font-weight:600;">${u.name} ${isPendingDelete ? '<span title="Pending Deletion" style="color:var(--warning);"><i class="fas fa-clock"></i></span>' : ''}</td>
                         <td>${u.email}</td>
-                        <td style="font-weight:600;">₹${u.balance.toFixed(2)}</td>
+                        <td style="font-weight:600;">â‚¹${u.balance.toFixed(2)}</td>
                         <td>
                             <span class="badge-status ${isBlocked ? 'badge-danger' : 'badge-success'}">${isBlocked ? 'BLOCKED' : 'ACTIVE'}</span>
                         </td>
@@ -239,7 +239,7 @@
                             <td style="font-size:0.85rem;">${formattedDate}</td>
                             <td style="font-weight:600;">${userName}</td>
                             <td>${loan.loanType}</td>
-                            <td style="font-weight:600;">₹${loan.amount.toFixed(2)}</td>
+                            <td style="font-weight:600;">â‚¹${loan.amount.toFixed(2)}</td>
                             <td>
                                 <span class="badge-status ${badgeClass}">${loan.status}</span>
                             </td>

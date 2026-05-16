@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
         <div class="auth-card">
             <div class="auth-header">
                 <a href="index.html" class="logo" style="display: flex; align-items: center; justify-content: center; text-decoration: none; gap: 8px; margin-bottom: 20px;">
-                    <img src="assets/ajhggc_logo.png" alt="Aurex Logo" class="custom-logo-img" style="height: 48px;">
+                    <img src="assets/aurex_bank_logo.png" alt="Aurex Logo" class="custom-logo-img" style="height: 48px;">
                     <span class="brand-text" style="font-size: 1.8rem; background: var(--warning); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Aurex</span>
                 </a>
                 <h2>Accountant Login</h2>
@@ -188,7 +188,7 @@
                             <td>${r.email}</td>
                             <td>${r.phone}</td>
                             <td>${r.gender}</td>
-                            <td style="font-weight:600;">₹${(r.balance || 0).toFixed(2)}</td>
+                            <td style="font-weight:600;">â‚¹${(r.balance || 0).toFixed(2)}</td>
                             <td>${statusBadge}</td>
                             <td style="font-size:0.82rem;color:var(--text-light);">${date}</td>
                             <td>
@@ -247,7 +247,7 @@
                         <td style="font-family:monospace; font-size:0.85rem;">${u.id}</td>
                         <td style="font-weight:600;">${u.name}</td>
                         <td>${u.email}</td>
-                        <td style="font-weight:600;">₹${(u.balance || 0).toFixed(2)}</td>
+                        <td style="font-weight:600;">â‚¹${(u.balance || 0).toFixed(2)}</td>
                         <td>
                             <button onclick="processDeletion('${u.id}', 'approve')" class="btn" style="background:var(--danger); color:white; padding:4px 8px; font-size:0.8rem; border:none; margin-right:8px;">Confirm Delete</button>
                             <button onclick="processDeletion('${u.id}', 'reject')" class="btn btn-outline" style="padding:4px 8px; font-size:0.8rem;">Cancel</button>
