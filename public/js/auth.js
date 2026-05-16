@@ -495,6 +495,17 @@ function initializeKeypad() {
   const keypadContainer = document.getElementById("numericKeypad");
   if (!keypadContainer) return;
 
+  const mpinInput = document.getElementById("loginMpin");
+  if (mpinInput) {
+    mpinInput.addEventListener("keydown", (e) => {
+      const allowedKeys = ["Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight", "Escape"];
+      if (!allowedKeys.includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+    mpinInput.addEventListener("paste", (e) => e.preventDefault());
+  }
+
   renderKeypad();
 }
 
@@ -629,16 +640,29 @@ function initializeSecurityQuestions() {
    AUTO INITIALIZE
    ================================ */
 
-if (window.location.pathname.includes("login.html") ||
-  window.location.pathname.includes("register.html")) {
+const currentPath = window.location.pathname.toLowerCase();
+const isLoginPage = currentPath.includes("login.html") || currentPath.endsWith("/login") || currentPath.endsWith("/login/");
+const isRegisterPage = currentPath.includes("register.html") || currentPath.endsWith("/register") || currentPath.endsWith("/register/");
+
+if (isLoginPage || isRegisterPage) {
 
   redirectIfAuthenticated();
 
-  if (window.location.pathname.includes("login.html")) {
-    window.addEventListener('DOMContentLoaded', initializeKeypad);
+  if (isLoginPage) {
+    // Call immediately (script is at bottom of body, DOM is ready)
+    // Also attach DOMContentLoaded as fallback in case DOM isn't ready yet
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initializeKeypad);
+    } else {
+      initializeKeypad();
+    }
   }
 
-  if (window.location.pathname.includes("register.html")) {
-    window.addEventListener('DOMContentLoaded', initializeSecurityQuestions);
+  if (isRegisterPage) {
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initializeSecurityQuestions);
+    } else {
+      initializeSecurityQuestions();
+    }
   }
 }
